@@ -5,10 +5,11 @@ import TaskListItem from '../task-list-item';
 import './task-list.css';
 
 const TaskList = ({ todos }) => {
+  
   const elements = todos.map(item => {
     const { id, ...itemProps } = item;
     return (
-      <li key={id} className="list-group-item">
+      <li key={id} className="list-item">
         <TaskListItem
           {...itemProps}
         />
@@ -16,7 +17,7 @@ const TaskList = ({ todos }) => {
     );
   });
 
-  return <ul className="list-group task-list">{elements}</ul>;
+  return <ol className="list-counter-square task-list">{elements}</ol>;
 };
 
 export default TaskList;

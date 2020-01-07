@@ -13,7 +13,7 @@ export default class App extends Component {
 
   state = {
     taskData: [
-      this.createTaskItem("Решенить первое домашнее задание по React"),
+      // this.createTaskItem("Решить первое домашнее задание по React"),
     ]
   };
 
