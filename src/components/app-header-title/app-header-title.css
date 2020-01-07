@@ -1,0 +1,11 @@
+.app-header-title {
+  align-items: center;
+  text-align: center;
+  padding-top: 20px;
+}
+
+.app-header-title h1 {
+  flex-grow: 1;
+  color: #B22222;
+  text-transform: uppercase;
+}

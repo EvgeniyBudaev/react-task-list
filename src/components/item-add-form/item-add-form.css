@@ -1,0 +1,14 @@
+.item-add-form {
+  padding-top: 30px;
+  min-width: 600px;
+  width: 600px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.item-add-form input {
+margin-right: 3px;
+}
