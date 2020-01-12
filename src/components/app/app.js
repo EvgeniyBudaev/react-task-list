@@ -4,17 +4,18 @@ import AppHeaderTitle from "../app-header-title";
 import AppHeaderSubtitle from "../app-header-subtitle";
 import ItemAddForm from "../item-add-form";
 import TaskList from "../task-list";
+import SearchPanel from "../search-panel";
 
 import "./app.css";
 
 export default class App extends Component {
-
   maxId = 100;
 
   state = {
     taskData: [
       // this.createTaskItem("Решить первое домашнее задание по React"),
-    ]
+    ],
+    textSearch: ""
   };
 
   createTaskItem(label) {
@@ -36,17 +37,31 @@ export default class App extends Component {
     });
   };
 
-  render() {
+  onSearchChange = textSearch => {
+    this.setState({ textSearch });
+  };
 
-    const { taskData } = this.state;
+  search(items, textSearch) {
+    if (textSearch.length === 0) {
+      return items;
+    }
+    return items.filter(item => {
+      return item.label.toLowerCase().indexOf(textSearch.toLowerCase()) > -1;
+    });
+  }
+
+  render() {
+    const { taskData, textSearch } = this.state;
+    const visibleItems = this.search(taskData, textSearch);
     
     return (
       <div className="react-task-list">
         <AppHeaderTitle />
         <AppHeaderSubtitle />
+        <SearchPanel onSearchChange={this.onSearchChange} taskData={taskData} />
         <ItemAddForm onItemAdded={this.addItem} />
-        <TaskList todos={taskData}/>
+        <TaskList todos={visibleItems} />
       </div>
     );
   }
-};
+}
