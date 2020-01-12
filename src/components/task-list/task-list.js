@@ -7,11 +7,11 @@ import './task-list.css';
 const TaskList = ({ todos }) => {
   
   const elements = todos.map(item => {
-    const { id, ...itemProps } = item;
+    const { id } = item;
     return (
       <li key={id} className="list-item">
         <TaskListItem
-          {...itemProps}
+          {...item}
         />
       </li>
     );

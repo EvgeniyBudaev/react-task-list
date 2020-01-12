@@ -9,7 +9,7 @@ import SearchPanel from "../search-panel";
 import "./app.css";
 
 export default class App extends Component {
-  maxId = 100;
+  maxId = 1;
 
   state = {
     taskData: [
@@ -53,7 +53,7 @@ export default class App extends Component {
   render() {
     const { taskData, textSearch } = this.state;
     const visibleItems = this.search(taskData, textSearch);
-    
+
     return (
       <div className="react-task-list">
         <AppHeaderTitle />
