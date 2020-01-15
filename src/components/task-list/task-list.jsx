@@ -4,7 +4,7 @@ import TaskListItem from '../task-list-item';
 
 import './task-list.css';
 
-const TaskList = ({ todos }) => {
+const TaskList = ({ todos, onDeleted }) => {
   
   const elements = todos.map(item => {
     const { id } = item;
@@ -12,6 +12,7 @@ const TaskList = ({ todos }) => {
       <li key={id} className="list-item">
         <TaskListItem
           {...item}
+          onDeleted={() => onDeleted(id)}
         />
       </li>
     );

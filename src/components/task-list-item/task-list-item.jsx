@@ -4,7 +4,7 @@ import "./task-list-item.css";
 
 export default class TaskListItem extends Component {
   render() {
-    const { label, id } = this.props;
+    const { label, id, onDeleted } = this.props;
 
     let classNames = "task-list-item";
 
@@ -12,6 +12,13 @@ export default class TaskListItem extends Component {
       <span className={classNames}>
         <span className="task-list-before">{id}</span>
         <span className="task-list-item-label">{label}</span>
+        <button
+          type="button"
+          className="btn btn-outline-danger btn-sm float-right"
+          onClick={onDeleted}
+        >
+          <i className="fa fa-trash-o" />
+        </button>
       </span>
     );
   }

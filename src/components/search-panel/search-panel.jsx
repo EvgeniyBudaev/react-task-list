@@ -16,7 +16,7 @@ export default class SearchPanel extends Component {
   render() {
     const { taskData } = this.props;
 
-    let classNames = "container ";
+    let classNames = "container";
 
     if (taskData.length > 1) {
       classNames += " moreTwoItems";

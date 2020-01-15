@@ -37,6 +37,18 @@ export default class App extends Component {
     });
   };
 
+  DeleteItem = id => {
+    this.setState(({ taskData }) => {
+      const idx = taskData.findIndex(el => el.id === id);
+
+      const newArray = [...taskData.slice(0, idx), ...taskData.slice(idx + 1)];
+
+      return {
+        taskData: newArray
+      };
+    });
+  };
+
   onSearchChange = textSearch => {
     this.setState({ textSearch });
   };
@@ -60,7 +72,7 @@ export default class App extends Component {
         <AppHeaderSubtitle />
         <SearchPanel onSearchChange={this.onSearchChange} taskData={taskData} />
         <ItemAddForm onItemAdded={this.addItem} />
-        <TaskList todos={visibleItems} />
+        <TaskList todos={visibleItems} onDeleted={this.DeleteItem} />
       </div>
     );
   }

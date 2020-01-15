@@ -1,0 +1,8 @@
+.task-list-item .btn {
+  background-color: #fff;
+}
+
+.task-list-item .btn:hover {
+  color: #000;
+  background-color: red;
+}
