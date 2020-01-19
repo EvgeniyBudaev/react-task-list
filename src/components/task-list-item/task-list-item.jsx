@@ -3,6 +3,11 @@ import React, { Component } from "react";
 import "./task-list-item.css";
 
 export default class TaskListItem extends Component {
+  shouldComponentUpdate(nextProps, nextState) {
+    if (this.props.label !== nextProps.label) return true
+    return false
+  }
+
   render() {
     const { label, id, onDeleted } = this.props;
 
